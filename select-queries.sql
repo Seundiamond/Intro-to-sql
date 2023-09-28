@@ -95,3 +95,75 @@ WHERE NOT grade >= 3.8;
 SELECT *
 FROM students
 WHERE NOT grade >= 3.8 AND NOT age >= 25;
+
+USE university; 
+
+SELECT *
+FROM students;
+
+SELECT *
+FROM students
+WHERE name LIKE 'M%' OR grade > 3.1; 
+
+SELECT *
+FROM students
+WHERE age > 20 OR grade > 3.1 OR admitted_at > '2017-09-01';
+
+SELECT *
+FROM students
+WHERE NOT grade >= 3.8;
+
+SELECT *
+FROM students
+WHERE age = 23
+   OR age = 24
+   OR age = 27;
+   
+-- Alternative approach with IN operator.
+SELECT *
+FROM students
+WHERE age IN (23, 24, 27); 
+
+SELECT * 
+FROM students
+WHERE student_id IN (12, 3, 8, 4);
+
+SELECT * 
+FROM students
+WHERE admitted_at IN ('2015-09-01', '2017-09-01');
+
+SELECT * 
+FROM students
+WHERE admitted_at NOT IN ('2015-09-01', '2017-09-01');
+
+SELECT * 
+FROM students
+WHERE age BETWEEN 24 AND 27;
+
+SELECT * 
+FROM students
+WHERE admitted_at BETWEEN '2015-09-01' AND '2017-09-01'
+  AND age IN (23, 24);
+
+SELECT * 
+FROM students
+WHERE grade IS NULL;
+
+SELECT *,
+CASE
+    WHEN age >= 26 THEN 'Upper Age Class'
+    WHEN age BETWEEN 23 AND 25 THEN 'Middle Age Class'
+    WHEN age < 23 THEN 'Lower Age Class'
+END AS age_bracket
+FROM students; 
+
+UPDATE students 
+SET grade = null
+WHERE grade = 0.0;
+
+SELECT *,
+CASE grade
+     WHEN 4.0 THEN 'Best Student'
+     ELSE 'Normal'
+END AS Award
+FROM students;
