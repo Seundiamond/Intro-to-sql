@@ -28,3 +28,4 @@ VALUES (1, 'Seun Dada', '2015-09-01', 27, 3.8, '2015-09-01 13:21:59', 'Biochemis
 	   (12, 'Femi Akin', '2017-09-01', 24, NULL, '2017-09-01 09:11:32', 'Physics', 26410);
 
 SELECT * FROM students;
+
